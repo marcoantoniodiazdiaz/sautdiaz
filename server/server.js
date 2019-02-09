@@ -1,27 +1,35 @@
-require('./config/config')
+require('./config/config');
 
-const express = require('express')
-const app = express()
-const bodyParser = require('body-parser')
+const express = require('express');
+const mongoose = require('mongoose');
 
+
+const app = express();
+
+const bodyParser = require('body-parser');
+
+// parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
-    // parse application/json
+
+// parse application/json
 app.use(bodyParser.json())
 
 
-app.get('/', function(req, res) {
-    res.json('Hello World')
-})
+// Configuración global de rutas
+app.use(require('./routes/index'));
 
-app.post('/', function(req, res) {
 
-    let body = req.body
 
-    res.json({
-        body
-    })
-})
+mongoose.connect(process.env.URLDB, (err, res) => {
+
+    if (err) throw err;
+
+    console.log('Base de datos ONLINE');
+
+});
+
+
 
 app.listen(process.env.PORT, () => {
-    console.log('Escuchando en puerto 3000');
-})
+    console.log('Escuchando puerto: ', process.env.PORT);
+});
