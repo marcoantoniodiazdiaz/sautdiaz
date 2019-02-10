@@ -15,7 +15,7 @@ let verificaToken = (req, res, next) => {
                 ok: false,
                 err: {
                     // message: 'Token no válido'
-                    message: "No te conozco"
+                    message: "Acceso denegado a Sautdiaz Server"
                 }
             });
         }
