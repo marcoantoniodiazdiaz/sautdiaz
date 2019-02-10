@@ -30,9 +30,12 @@ process.env.SEED = process.env.SEED || 'este-es-el-seed-desarrollo';
 // ============================
 let urlDB;
 
-if (process.env.NODE_ENV === 'dev') {
-    urlDB = 'mongodb://localhost:27017/sautdiaz';
-} else {
-    urlDB = process.env.MONGO_URI;
-}
+urlDB = 'mongodb+srv://marco_diaz:pataPON3@cluster0-jm5fl.mongodb.net/sautdiaz?retryWrites=true';
+
+// if (process.env.NODE_ENV === 'dev') {
+//     urlDB = 'mongodb://localhost:27017/sautdiaz';
+// } else {
+//     //urlDB = process.env.MONGO_URI;
+//     urlDB = 'mongodb+srv://marco_diaz:pataPON3@cluster0-jm5fl.mongodb.net/test?retryWrites=true';
+// }
 process.env.URLDB = urlDB;
