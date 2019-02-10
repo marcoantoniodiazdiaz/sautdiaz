@@ -19,6 +19,7 @@ app.use(require('./detalle'));
 app.use(require('./marcas'));
 app.use(require('./pagos'));
 app.use(require('./colores'));
+app.use(require('./updates'));
 
 
 
