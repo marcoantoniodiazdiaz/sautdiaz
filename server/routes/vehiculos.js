@@ -15,6 +15,7 @@ app.get('/vehiculos', verificaToken, (req, res) => {
     Vehiculos.find({})
         .populate('cliente')
         .populate('marca')
+        .populate('color')
         .exec((err, data) => {
             if (err) {
                 return res.status(400).json({
@@ -34,6 +35,28 @@ app.get('/vehiculos/:id', verificaToken, (req, res) => {
     let cliente = req.params['id'];
     Vehiculos.find({
             cliente
+        })
+        .populate('cliente')
+        .populate('marca')
+        .exec((err, data) => {
+            if (err) {
+                return res.status(400).json({
+                    ok: false,
+                    err
+                })
+            }
+
+            res.json({
+                ok: true,
+                data
+            });
+        });
+});
+
+app.get('/vehiculos/placa/:placa', verificaToken, (req, res) => {
+    let placa = req.params['placa'];
+    Vehiculos.find({
+            placa
         })
         .populate('cliente')
         .populate('marca')

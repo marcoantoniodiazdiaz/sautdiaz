@@ -15,11 +15,12 @@ let vehiculosSchema = new Schema({
     },
     submarca: {
         type: String,
-        required: [true, "La marca es requerida"]
+        required: [true, "La marca es requerida"],
     },
     color: {
-        type: String,
-        required: [true, "El color es requerido"]
+        type: Schema.ObjectId,
+        required: [true, "El color es requerido"],
+        ref: "Colores"
     },
     cliente: {
         required: [true, "El cliente es requerido"],

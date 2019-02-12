@@ -16,6 +16,7 @@ let servicioSchema = new Schema({
     },
     status: {
         type: String,
+        required: false,
         default: "0"
     },
     trabajador: {
@@ -23,7 +24,6 @@ let servicioSchema = new Schema({
         required: [true, "El trabajador es requerido"],
         ref: "Trabajadores"
     }
-
 });
 
 

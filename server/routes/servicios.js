@@ -17,14 +17,24 @@ app.get('/servicios', verificaToken, (req, res) => {
             path: 'vehiculo',
             populate: {
                 path: 'marca',
-                model: 'Marcas'
+            }
+        })
+        .populate({
+            path: 'vehiculo',
+            populate: {
+                path: 'color',
             }
         })
         .populate({
             path: 'vehiculo',
             populate: {
                 path: 'cliente',
-                model: 'Usuario'
+            }
+        })
+        .populate({
+            path: 'productos',
+            populate: {
+                path: 'departamento'
             }
         })
         .populate('trabajador')

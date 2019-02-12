@@ -59,8 +59,29 @@ app.post('/detalle', [verificaToken, verificaAdmin_Role], function(req, res) {
             data
         });
     });
+});
 
+app.delete('/detalle/:producto', [verificaToken, verificaAdmin_Role], function(req, res) {
+    let producto = req.params['producto'];
 
+    Detalle.findOneAndDelete({ 'producto': producto }, function(err, data) {
+        if (err) {
+            return res.status(400).json({
+                ok: false,
+                err
+            });
+        }
+        if (data === null) {
+            return res.status(400).json({
+                ok: false,
+                message: "El producto no existe en el servicio"
+            })
+        }
+        res.json({
+            ok: true,
+            data
+        });
+    })
 });
 
 

@@ -66,9 +66,9 @@ app.post('/usuario', [verificaToken, verificaAdmin_Role], function(req, res) {
 app.put('/usuario/:id', [verificaToken, verificaAdmin_Role], function(req, res) {
 
     let id = req.params.id;
-    let body = _.pick(req.body, ['nombre', 'email', 'img', 'role', 'estado']);
+    let body = _.pick(req.body, ['nombre', 'direccion', 'telefono', 'celular']);
 
-    Usuario.findByIdAndUpdate(id, body, { new: true, runValidators: true }, (err, usuarioDB) => {
+    Usuario.findByIdAndUpdate(id, body, { new: true, runValidators: true }, (err, data) => {
 
         if (err) {
             return res.status(400).json({
@@ -81,7 +81,7 @@ app.put('/usuario/:id', [verificaToken, verificaAdmin_Role], function(req, res) 
 
         res.json({
             ok: true,
-            usuario: usuarioDB
+            usuario: data
         });
 
     })
@@ -89,42 +89,27 @@ app.put('/usuario/:id', [verificaToken, verificaAdmin_Role], function(req, res) 
 });
 
 app.delete('/usuario/:id', [verificaToken, verificaAdmin_Role], function(req, res) {
+    let id = req.params['id'];
 
-
-    let id = req.params.id;
-
-
-    let cambiaEstado = {
-        estado: false
-    };
-
-    Usuario.findByIdAndUpdate(id, cambiaEstado, { new: true }, (err, usuarioBorrado) => {
-
+    Usuario.findOneAndDelete({ _id: id }, function(err, data) {
         if (err) {
             return res.status(400).json({
                 ok: false,
                 err
             });
         }
-
-        if (!usuarioBorrado) {
+        if (data === null) {
             return res.status(400).json({
                 ok: false,
-                err: {
-                    message: 'Usuario no encontrado'
-                }
-            });
+                message: "El cliente no existe en el servicio"
+            })
         }
 
         res.json({
             ok: true,
-            usuario: usuarioBorrado
+            data
         });
-
-    });
-
-
-
+    })
 });
 
 
