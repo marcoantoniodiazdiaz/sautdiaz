@@ -34,6 +34,6 @@ if (process.env.NODE_ENV === 'dev') {
 } else {
     urlDB = process.env.MONGO_URI;
     urlDB =
-        'mongodb+srv://marco_diaz:pataPON3@cluster0-jm5fl.mongodb.net/test?retryWrites=true&w=majority';
+        'mongodb+srv://marco_diaz:pataPON3@cluster0-jm5fl.mongodb.net/sautdiaz?retryWrites=true&w=majority';
 }
 process.env.URLDB = urlDB;
