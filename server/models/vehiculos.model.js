@@ -6,26 +6,31 @@ let Schema = mongoose.Schema;
 let vehiculosSchema = new Schema({
     placa: {
         type: String,
-        required: [true, "La placa es requerida"]
+        required: [true, "El campo placa es requerida"]
     },
     marca: {
         type: Schema.ObjectId,
-        required: [true, "La marca es requerida"],
+        required: [true, "El campo marca es requerida"],
         ref: "Marcas"
     },
     submarca: {
         type: String,
-        required: [true, "La marca es requerida"],
+        required: [true, "El campo submarca es requerida"],
     },
     color: {
-        type: Schema.ObjectId,
-        required: [true, "El color es requerido"],
-        ref: "Colores"
+        type: String,
+        required: [true, "El campo color es requerido"],
+    },
+    modelo: {
+        type: String,
     },
     cliente: {
-        required: [true, "El cliente es requerido"],
         type: Schema.ObjectId,
-        ref: "Usuario"
+        required: [true, "El campo cliente es requerido"],
+        ref: "Clientes"
+    },
+    motor: {
+        type: String
     }
 });
 

@@ -6,8 +6,8 @@ let Schema = mongoose.Schema;
 let departamentosSchema = new Schema({
     nombre: {
         type: String,
-        required: [true, "El nombre es requerida"]
-    }
+        required: [true, "El campo nombre es requerido"]
+    },
 });
 
 

@@ -5,10 +5,9 @@ let Schema = mongoose.Schema;
 
 let trabajadoresSchema = new Schema({
     nombre: {
-        required: [true, "El nombre es requerido"],
-        type: String
-    }
-
+        type: String,
+        required: [true, "El campo nombre es requerido"]
+    },
 });
 
 

@@ -2,29 +2,25 @@ const mongoose = require('mongoose');
 
 let Schema = mongoose.Schema;
 
-
-let servicioSchema = new Schema({
-
-    vehiculo: {
-        required: [true, "El vehiculo es requerido"],
-        type: Schema.ObjectId,
-        ref: "Vehiculos"
-    },
+let serviciosSchema = new Schema({
     fecha: {
         type: String,
-        required: [true, "La fecha es requerida"]
+        required: [true, 'El campo fecha es requerido']
     },
-    status: {
+    vehiculo: {
+        type: Schema.ObjectId,
+        required: [true, 'El campo vehiculo es requerido'],
+        ref: 'Vehiculos'
+    },
+    estado: {
         type: String,
-        required: false,
-        default: "0"
+        required: [true, 'El campo estado es requerido']
     },
     trabajador: {
         type: Schema.ObjectId,
-        required: [true, "El trabajador es requerido"],
-        ref: "Trabajadores"
+        required: [true, 'El campo vehiculo es requerido'],
+        ref: 'Trabajadores'
     }
 });
 
-
-module.exports = mongoose.model('Servicios', servicioSchema);
+module.exports = mongoose.model('Servicios', serviciosSchema);

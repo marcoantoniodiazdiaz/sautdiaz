@@ -6,8 +6,8 @@ let Schema = mongoose.Schema;
 let marcasSchema = new Schema({
     nombre: {
         type: String,
-        required: [true, "El nombre es requerido"]
-    }
+        required: [true, "El campo nombre es requerido"]
+    },
 });
 
 
