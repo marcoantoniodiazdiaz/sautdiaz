@@ -8,16 +8,13 @@ let clientesSchema = new Schema({
         required: [true, 'El campo nombre es requerido']
     },
     calle: {
-        type: String,
-        required: [true, 'El campo calle es requerido']
+        type: String
     },
     numero: {
-        type: String,
-        required: [true, 'El campo numero de calle es requerido']
+        type: String
     },
     colonia: {
-        type: String,
-        required: [true, 'El campo colonia es requerido']
+        type: String
     },
     email: {
         type: String
