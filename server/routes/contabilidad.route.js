@@ -69,14 +69,15 @@ app.get(
         });
 
         /*
-                                  Cuentas:
-                                  0: Caja:            5d0a67b88823460bd47815af
-                                  1: Bancos:          5d0a67c58823460bd47815b0
-                                  2: Proveedores:     5d0a67d98823460bd47815b2
-                                  3: Clientes:        5d0a67ce8823460bd47815b1
-                                  4. Mercancias:      5d0a67f78823460bd47815b3
+                                      Cuentas:
+                                      0: Caja:            5d0a67b88823460bd47815af
+                                      1: Bancos:          5d0a67c58823460bd47815b0
+                                      2: Proveedores:     5d0a67d98823460bd47815b2
+                                      3: Clientes:        5d0a67ce8823460bd47815b1
+                                      4. Mercancias:      5d0a67f78823460bd47815b3
+                                      5. SuperUser
 
-                              */
+                                  */
     }
 );
 

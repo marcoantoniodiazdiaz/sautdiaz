@@ -13,16 +13,16 @@ const app = express();
 
 app.get('/movimientos', [verificaToken, verificaAdmin_Role], (req, res) => {
     /*
-                  Cuentas:
-                  0: Caja
-                  1: Bancos
-                  2: Proveedores
-                  3: Clientes
-                  4. Mercancias
-                  5. Doc por pagar
-                  6. Doc por cobrar
+                    Cuentas:
+                    0: Caja
+                    1: Bancos
+                    2: Proveedores
+                    3: Clientes
+                    4. Mercancias
+                    5. Doc por pagar
+                    6. Doc por cobrar
 
-              */
+                */
 
     Movimientos.find({}).exec((err, data) => {
         if (err) {
@@ -54,16 +54,16 @@ app.get(
         end = req.params.end;
 
         /*
-                   Cuentas:
-                   0: Caja
-                   1: Bancos
-                   2: Proveedores
-                   3: Clientes
-                   4. Mercancias
-                   5. Doc por pagar
-                   6. Doc por cobrar
+                       Cuentas:
+                       0: Caja
+                       1: Bancos
+                       2: Proveedores
+                       3: Clientes
+                       4. Mercancias
+                       5. Doc por pagar
+                       6. Doc por cobrar
 
-               */
+                   */
 
         Movimientos.find({
             cuenta,
@@ -98,16 +98,16 @@ app.post('/movimientos', [verificaToken, verificaAdmin_Role], function(
     res
 ) {
     /*
-                  Cuentas:
-                  0: Caja
-                  1: Bancos
-                  2: Proveedores
-                  3: Clientes
-                  4. Mercancias
-                  5. Doc por pagar
-                  6. Doc por cobrar
+                    Cuentas:
+                    0: Caja
+                    1: Bancos
+                    2: Proveedores
+                    3: Clientes
+                    4. Mercancias
+                    5. Doc por pagar
+                    6. Doc por cobrar
 
-              */
+                */
 
     let body = req.body;
 
@@ -115,7 +115,8 @@ app.post('/movimientos', [verificaToken, verificaAdmin_Role], function(
         fecha: new Date().toISOString(),
         cantidad: body.cantidad,
         cuenta: body.cuenta,
-        descripcion: body.descripcion
+        descripcion: body.descripcion,
+        hidden: body.hidden
     });
 
     movimientos.save((err, data) => {
